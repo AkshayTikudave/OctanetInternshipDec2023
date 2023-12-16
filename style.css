@@ -1,152 +1,89 @@
-*{
+body {
+    display: flex;
+    justify-content: center; /* Horizontally center the container */
+    align-items: center; /* Vertically center the container */
+    height: 50vh; /* 100% of viewport height */
+	background: linear-gradient(135deg,#0e47b9,#4e085f);
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Bebas Neue', sans-serif;
-    color: #8B4513;
-    background-color: #ffffff;
 }
 
-html, body{
-    height: 100%;
-    width: 100%;
+.container {
+    max-width: 700px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-#main{
-    height: 100%;
-    width: 100%;
-    /* background-color: red; */
-    position: relative;
+h1 {
+		text-align: center;
+		color: #333;
+		text-transform: uppercase;
+		font-size: 32px; /* Increase font size */
+		margin: 5px 0; /* Add some margin space */
+		padding: 10px; /* Add padding for visual separation */
+		background-color: #ed7a0e; /* Background color for the heading */
+		color: #161313; /* Text color for the heading */
+		border-radius: 5px; /* Rounded corners for the heading */
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+		transition: background-color 0.2s, transform 0.2s; /* Smooth transitions */
+		cursor: pointer;
+	}
+	
+	h1:hover {
+		background-color: #0056b3;
+		transform: scale(1.05); /* Slight scaling effect on hover */
+	}
+
+.input-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #1b1010;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #25ba03;
+    border: 2px solid black;
+    color: #151413;
+    border-radius: 5px ;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: background-color 0.2s; /* Add smooth hover transition */
+}
+
+button:hover {
+    background-color: #1b83bb;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-}
-#main img{
-    position: relative;
-    z-index: 1;
-    height: 700px;
-    width: 510px;
-    object-fit: cover;
-    border: 5px dotted black;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
-    /* border: 2px solid black; */
-    transition: 1s;
 }
 
-#main img:hover{
-    border: 5px dashed black;
-    /* transform: scale(1.1); */
-    /* transform-origin: 24px; */
+.checkbox {
+    margin-right: 10px;
 }
 
-#scroll-div{
-    position: absolute;
-    top: 24%;
-    width: 100%;
-    /* height: 100px; */
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
+.task {
+    flex: 1;
 }
 
-#scroll-div::-webkit-scrollbar{
-    display: none;
-}
-
-#scroll-div h1{
-    display: inline-block;
-    font-size: 160px;
-    text-transform: uppercase;
-    margin-right: 30px;
-    letter-spacing: 4px;
-    /* font-family: monument,sans-serif; */
-    animation-name: scroll;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-/* 2nd */
-#scroll-div2{
-    position: absolute;
-    top: 44%;
-    width: 100%;
-    z-index: 2;
-    /* height: 100px; */
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden  ;
-    background: transparent;
-}
-
-#scroll-div2::-webkit-scrollbar{
-    display: none;
-}
-
-#scroll-div2 h1{
-    display: inline-block;
-    font-size: 160px;
-    text-transform: uppercase;
-    margin-right: 30px;
-    letter-spacing: 4px;
-    color: transparent;
-    background: transparent;
-    /* font-family: monument,sans-serif; */
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #8B4513;
-    animation-name: scroll;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-/* 3rd */
-#scroll-div3{
-    position: absolute;
-    top: 64%;
-    width: 100%;
-    /* height: 100px; */
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden  ;
-}
-
-#scroll-div3::-webkit-scrollbar{
-    display: none;
-}
-
-#scroll-div3 h1{
-    display: inline-block;
-    font-size: 160px;
-    text-transform: uppercase;
-    margin-right: 30px;
-    letter-spacing: 4px;
-    /* font-family: monument,sans-serif; */
-    animation-name: scroll;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    animation-direction: reverse;
-}
-
-#text{
-    font-size: 30px;
-    position: absolute;
-    /* font-family: sans-serif; */
-    width: 60%;
-    /* background-color: red; */
-    z-index: 3;
-    top: 5%;
-    text-transform: uppercase;
-    text-align: center;
-    background: transparent;
-}
-
-@keyframes scroll {
-    0%{  
-        transform: translateX(calc(-100% - 32px));
-    }
-    100%{
-        transform: translateX(0);
-    }
+/* New style for completed tasks */
+li.completed {
+    color: #888;
+    text-decoration: line-through;
 }
